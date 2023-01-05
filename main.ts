@@ -191,13 +191,13 @@ export default class Waypoint extends Plugin {
 			// Print the file name
 			if (node.extension == "md") {
 				if (this.settings.useWikiLinks) {
-					return `${bullet} [[${node.basename}]]`;
+					return `${bullet} [[${node.basename}|${node.basename}]]`;
 				} else {
 					return `${bullet} [${node.basename}](${this.getEncodedUri(rootNode, node)})`;
 				}
 			} else if (this.settings.showNonMarkdownFiles) {
 				if (this.settings.useWikiLinks) {
-					return `${bullet} [[${node.name}]]`;
+					return `${bullet} [[${node.name}|${node.name}]]`;
 				} else {
 					return `${bullet} [${node.name}](${this.getEncodedUri(rootNode, node)})`;
 				}
@@ -218,7 +218,7 @@ export default class Waypoint extends Plugin {
 				}
 				if (folderNote instanceof TFile) {
 					if (this.settings.useWikiLinks) {
-						text = `${bullet} **[[${folderNote.basename}]]**`;
+						text = `${bullet} **[[${folderNote.basename}|${folderNote.basename}]]**`;
 					} else {
 						text = `${bullet} **[${folderNote.basename}](${this.getEncodedUri(rootNode, folderNote)})**`;
 					}
